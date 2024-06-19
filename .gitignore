@@ -1,0 +1,27 @@
+
+###> symfony/framework-bundle ###
+/.env.local
+/.env.local.php
+/.env.*.local
+/config/secrets/prod/prod.decrypt.private.php
+/config/preload.php
+/public/bundles/
+/public/var/
+/composer.lock
+
+/var/
+/vendor/
+#/migrations/
+/public/uploads/
+/.idea/
+###< symfony/framework-bundle ###
+/.env.prod
+
+/symfony_dnmp/
+
+### extension
+/extension/build
+/extension/node_modules
+/extension/.idea/
+
+
