@@ -3,6 +3,7 @@
 
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices.html#use-parameters-for-application-configuration
+# 定义全局参数
 parameters:
 
 services:
@@ -13,6 +14,7 @@ services:
 
     # makes classes in src/ available to be used as services
     # this creates a service per class whose id is the fully-qualified class name
+    # 扫描 src/ 目录，自动注册服务
     App\:
         resource: '../src/'
         exclude:
@@ -22,3 +24,11 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+    App\Monolog\Handler\DatabaseHandler:
+        public: true
+        arguments:
+            $entityManager: '@doctrine.orm.logging_entity_manager'
+    App\Service\ApiKeyJwtService:
+        public: true
+        arguments:
+            $secretKey: '%env(API_KEY_SECRET)%'

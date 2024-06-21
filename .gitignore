@@ -4,7 +4,6 @@
 /.env.local.php
 /.env.*.local
 /config/secrets/prod/prod.decrypt.private.php
-/config/preload.php
 /public/bundles/
 /public/var/
 /composer.lock
@@ -25,3 +24,7 @@
 /extension/.idea/
 
 
+
+###> lexik/jwt-authentication-bundle ###
+/config/jwt/*.pem
+###< lexik/jwt-authentication-bundle ###
