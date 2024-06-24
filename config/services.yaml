@@ -32,3 +32,12 @@ services:
         public: true
         arguments:
             $secretKey: '%env(API_KEY_SECRET)%'
+    App\Service\RedisTokenService: ~
+    App\Service\AuthService:
+        arguments:
+            $redisTokenService: '@App\Service\RedisTokenService'
+            $clientRegistry: '@knpu.oauth2.registry'
+            $router: '@router'
+    App\Repository\Main\UserRepository:
+        arguments:
+            $entityManager: '@doctrine.orm.entity_manager'

@@ -32,6 +32,11 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private ?string $username = null;
 
     #[Assert\NotBlank]
+    #[Serializer\Groups(['user.list'])]
+    #[ORM\Column(length: 180, unique: true)]
+    private ?string $mallId = null;
+
+    #[Assert\NotBlank]
     #[Serializer\Accessor(getter: 'getRoles')]
     #[Serializer\Type('array')]
     #[Serializer\Groups(['user.list', 'user.info'])]
@@ -369,5 +374,15 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         $this->status = $status;
 
         return $this;
+    }
+
+    public function getMallId(): ?string
+    {
+        return $this->mallId;
+    }
+
+    public function setMallId(?string $mallId): void
+    {
+        $this->mallId = $mallId;
     }
 }
