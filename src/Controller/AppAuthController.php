@@ -1,7 +1,4 @@
 <?php
-
-use App\Controller\BaseController;
-
 /**
  * @author: sma01
  * @since: 2024/6/24
@@ -13,7 +10,6 @@ namespace App\Controller;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Service\AuthService;
 use App\Repository\Main\UserRepository;
